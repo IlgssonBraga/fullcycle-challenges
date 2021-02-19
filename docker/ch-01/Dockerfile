@@ -1,7 +1,15 @@
-FROM scratch
+FROM golang:1.15.8-alpine AS builder
 
 WORKDIR /app
 
 COPY . .
 
-ENTRYPOINT ["./ch-01"] 
+RUN go build
+
+FROM scratch
+
+WORKDIR /app
+
+COPY --from=builder . .
+
+CMD ["./app/app"] 
