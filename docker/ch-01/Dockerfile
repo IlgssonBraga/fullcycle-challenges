@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY . .
 
-ENTRYPOINT ["./ch-01"]
+ENTRYPOINT ["./ch-01"] 
