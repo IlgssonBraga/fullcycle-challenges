@@ -4,12 +4,14 @@ WORKDIR /app
 
 COPY . .
 
-RUN go build
+RUN go build -ldflags "-s -w"
+
+RUN ls
 
 FROM scratch
 
 WORKDIR /app
 
-COPY --from=builder . .
+COPY --from=builder app .
 
-CMD ["./app/app"] 
+CMD ["./app"] 
