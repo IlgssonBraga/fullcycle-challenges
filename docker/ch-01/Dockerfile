@@ -1,9 +1,7 @@
-FROM golang:1.15.8-alpine
+FROM scratch
 
 WORKDIR /app
 
 COPY . .
 
-RUN go build
-
-ENTRYPOINT ["./app"]
+ENTRYPOINT ["./ch-01"]
